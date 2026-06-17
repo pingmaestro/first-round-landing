@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First Round — The official IBA record, 1961 to 2024</title>
+<meta name="description" content="First Round maps the complete IBA cocktail canon across seven editions. See where each drink came from, how it moved through history, and which are worth your next round.">
+<meta name="theme-color" content="#FBF7EF">
+<meta property="og:title" content="First Round">
+<meta property="og:description" content="The complete IBA cocktail record across seven editions. Taste with context.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#FBF7EF;
+    --paper-2:#F2EADA;
+    --ink:#211C18;
+    --ink-soft:#6E6256;
+    --gold:#B89455;
+    --gold-deep:#947334;
+    --line:rgba(33,28,24,.14);
+    --line-soft:rgba(33,28,24,.08);
+    --display:"Fraunces",Georgia,serif;
+    --body:"Hanken Grotesk",-apple-system,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+    --maxw:1060px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:17px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit}
+
+  .mono{
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+
+  /* ---------- nav ---------- */
+  header{padding:26px 0;border-bottom:1px solid var(--line-soft)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{display:flex;align-items:baseline;gap:9px;text-decoration:none}
+  .brand b{font-family:var(--display);font-weight:600;font-size:1.32rem;letter-spacing:-.01em}
+  .brand .tag{font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;color:var(--gold-deep);border:1px solid var(--gold);border-radius:2px;padding:2px 6px;transform:translateY(-2px)}
+  .nav-link{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--gold);padding-bottom:3px;transition:color .2s}
+  .nav-link:hover{color:var(--gold-deep)}
+
+  /* ---------- hero ---------- */
+  .hero{padding:80px 0 56px}
+  .eyebrow{margin-bottom:26px}
+  .hero h1{
+    font-family:var(--display);
+    font-weight:500;
+    font-size:clamp(2.7rem,7vw,4.6rem);
+    line-height:1.02;
+    letter-spacing:-.025em;
+    max-width:14ch;
+    font-variation-settings:"opsz" 90,"SOFT" 30;
+  }
+  .hero h1 em{font-style:italic;color:var(--gold-deep)}
+  .hero .lede{
+    margin-top:26px;
+    max-width:46ch;
+    font-size:1.12rem;
+    color:var(--ink-soft);
+  }
+  .cta-row{margin-top:38px;display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .btn{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    text-decoration:none;
+    font-family:var(--body);
+    font-weight:600;
+    font-size:.98rem;
+    padding:15px 30px;
+    border-radius:3px;
+    transition:transform .18s ease,background .2s ease;
+  }
+  .btn:hover{background:#0f0c0a;transform:translateY(-2px)}
+  .btn .arw{color:var(--gold);margin-left:8px}
+  .cta-note{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:var(--ink-soft)}
+
+  /* ---------- lifeline chart ---------- */
+  .chart-block{padding:8px 0 40px}
+  .chart-frame{
+    border:1px solid var(--line);
+    border-radius:6px;
+    background:linear-gradient(180deg,#FCF9F1,#F6EFE0);
+    padding:22px 22px 16px;
+    position:relative;
+    overflow:hidden;
+  }
+  .chart-frame .corner{position:absolute;top:12px;right:16px}
+  #lifelines{width:100%;height:auto;display:block}
+  .chart-cap{margin-top:10px;text-align:center}
+
+  /* svg classes */
+  .rail{stroke:var(--line-soft);stroke-width:1.4;stroke-linecap:round}
+  .life{fill:none;stroke:var(--ink);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+  .life.gold{stroke:var(--gold)}
+  .dot{fill:var(--ink)}
+  .dot.gold{fill:var(--gold)}
+  .yr{font-family:var(--mono);font-size:11px;letter-spacing:.08em;fill:var(--ink-soft)}
+  .nm{font-family:"Fraunces",serif;font-style:italic;font-size:14px;fill:var(--ink)}
+  .ann{font-family:var(--mono);font-size:10px;letter-spacing:.04em;fill:var(--ink-soft)}
+  .row-hit{fill:transparent;cursor:default}
+  .lrow{transition:opacity .2s ease}
+  .chart-frame.dim .lrow:not(.on){opacity:.28}
+
+  /* ---------- features ---------- */
+  .section{padding:72px 0;border-top:1px solid var(--line-soft)}
+  .sec-head{margin-bottom:42px}
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:38px}
+  .feat .n{font-family:var(--mono);font-size:.72rem;color:var(--gold-deep);letter-spacing:.1em}
+  .feat h3{font-family:var(--display);font-weight:500;font-size:1.42rem;letter-spacing:-.01em;margin:14px 0 10px}
+  .feat p{color:var(--ink-soft);font-size:.98rem}
+
+  /* ---------- insight ---------- */
+  .insight{background:var(--ink);color:var(--paper);border-radius:8px;padding:64px 56px;margin:8px 0}
+  .insight .eyebrow{color:var(--gold)}
+  .insight .eyebrow.mono{color:var(--gold)}
+  .insight h2{
+    font-family:var(--display);
+    font-weight:500;
+    font-size:clamp(1.9rem,4.4vw,3rem);
+    line-height:1.08;
+    letter-spacing:-.02em;
+    margin:22px 0 24px;
+    max-width:20ch;
+  }
+  .insight p{max-width:54ch;color:rgba(251,247,239,.8);font-size:1.06rem}
+  .insight .stat{display:flex;gap:48px;margin-top:38px;flex-wrap:wrap}
+  .insight .stat .v{font-family:var(--display);font-weight:600;font-size:2.6rem;color:var(--gold)}
+  .insight .stat .k{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(251,247,239,.65);margin-top:4px}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line-soft);padding:70px 0 56px}
+  .foot-top{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap}
+  .foot-top h2{font-family:var(--display);font-weight:500;font-size:clamp(1.8rem,4vw,2.6rem);letter-spacing:-.02em;max-width:16ch;line-height:1.06}
+  .foot-meta{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;margin-top:54px;padding-top:24px;border-top:1px solid var(--line-soft)}
+  .foot-meta a{color:var(--gold-deep);text-decoration:none;border-bottom:1px solid var(--line)}
+  .foot-meta a:hover{border-color:var(--gold)}
+
+  a:focus-visible,.btn:focus-visible{outline:2px solid var(--gold-deep);outline-offset:3px;border-radius:3px}
+
+  @media (max-width:760px){
+    body{font-size:16px}
+    .wrap{padding:0 22px}
+    .hero{padding:54px 0 40px}
+    .features{grid-template-columns:1fr;gap:30px}
+    .insight{padding:44px 28px}
+    .insight .stat{gap:34px}
+    .foot-top{align-items:flex-start}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .life{stroke-dasharray:none!important;stroke-dashoffset:0!important}
+    .btn:hover{transform:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#"><b>First Round</b><span class="tag">BETA</span></a>
+    <a class="nav-link" href="mailto:contact@firstround.bar?subject=First%20Round">Get in touch</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <div class="eyebrow mono">The official IBA record · 1961 &rarr; 2024</div>
+    <h1>Every drink has a <em>trajectory</em>.</h1>
+    <p class="lede">First Round maps the full IBA canon across seven editions. See where each cocktail came from, how it moved through history, and which drinks are worth your next round.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:contact@firstround.bar?subject=First%20Round">Get in touch<span class="arw">&rarr;</span></a>
+      <span class="cta-note">Currently in TestFlight beta</span>
+    </div>
+  </section>
+
+  <section class="chart-block wrap">
+    <div class="chart-frame" id="frame">
+      <span class="corner mono">Fig. 01</span>
+      <svg id="lifelines" viewBox="0 0 820 360" role="img" aria-label="Presence of cocktails across seven editions of the IBA list, from 1961 to 2024."></svg>
+      <div class="chart-cap mono">Presence across seven editions of the IBA list</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head eyebrow mono">What it does</div>
+      <div class="features">
+        <div class="feat">
+          <div class="n">01</div>
+          <h3>Taste with context</h3>
+          <p>Every cocktail arrives with its family, its origin, and the story behind it. History sits right next to the recipe.</p>
+        </div>
+        <div class="feat">
+          <div class="n">02</div>
+          <h3>A living record</h3>
+          <p>185 cocktails tracked across seven editions of the official IBA list, from 1961 all the way to today.</p>
+        </div>
+        <div class="feat">
+          <div class="n">03</div>
+          <h3>A diary you own</h3>
+          <p>Rate every pour, keep your notes, and let your history sync privately through iCloud.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding:24px 0 8px">
+    <div class="insight">
+      <div class="eyebrow mono">From the data</div>
+      <h2>During Prohibition, the bartenders sailed for Europe.</h2>
+      <p>From 1920 to 1933, three cocktails in the record were born in the United States. Across Europe, twenty-three. It is the one era where the old world leads, and the numbers mark the exact moment American bartending left home.</p>
+      <div class="stat">
+        <div><div class="v">3</div><div class="k">Born in the US</div></div>
+        <div><div class="v">23</div><div class="k">Born in Europe</div></div>
+        <div><div class="v">1920&ndash;33</div><div class="k">The exodus</div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <h2>Ready for the first round?</h2>
+      <a class="btn" href="mailto:contact@firstround.bar?subject=First%20Round">Get in touch<span class="arw">&rarr;</span></a>
+    </div>
+    <div class="foot-meta">
+      <span class="mono">Built on the complete historical record of the IBA</span>
+      <span><a href="mailto:contact@firstround.bar?subject=First%20Round" class="mono" style="text-transform:none;letter-spacing:.04em">contact@firstround.bar</a></span>
+      <span class="mono">© 2026 First Round</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var EDITIONS=[1961,1987,1993,2004,2011,2020,2024];
+  // Illustrative trajectories. Clover Club is the canonical comeback case.
+  var DATA=[
+    {name:"Dry Martini",       p:[1,1,1,1,1,1,1], gold:true,  ann:"All seven editions"},
+    {name:"Manhattan",         p:[1,1,1,1,1,1,1], gold:true,  ann:"All seven editions"},
+    {name:"Daiquiri",          p:[1,1,1,1,1,1,1], gold:true,  ann:"All seven editions"},
+    {name:"Clover Club",       p:[1,0,0,1,1,1,1], gold:false, ann:"Out 1987, back 2004"},
+    {name:"Mojito",            p:[0,0,0,1,1,1,1], gold:false, ann:"Joined 2004"},
+    {name:"Espresso Martini",  p:[0,0,0,0,0,1,1], gold:false, ann:"Joined 2020"},
+    {name:"Bamboo",            p:[1,1,0,0,0,0,0], gold:false, ann:"Last listed 1987"}
+  ];
+
+  var W=820, ML=148, MR=128, TOP=46, ROW=38;
+  var H=TOP+DATA.length*ROW+18;
+  var plotW=W-ML-MR;
+  var svg=document.getElementById("lifelines");
+  svg.setAttribute("viewBox","0 0 "+W+" "+H);
+  var NS="http://www.w3.org/2000/svg";
+  function el(t,a){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);return e;}
+  function x(i){return ML+(plotW/(EDITIONS.length-1))*i;}
+
+  // year axis
+  EDITIONS.forEach(function(y,i){
+    var t=el("text",{x:x(i),y:26,"text-anchor":"middle","class":"yr"});
+    t.textContent=y; svg.appendChild(t);
+  });
+  // light vertical guides
+  EDITIONS.forEach(function(y,i){
+    svg.appendChild(el("line",{x1:x(i),y1:34,x2:x(i),y2:H-12,stroke:"rgba(33,28,24,.05)","stroke-width":1}));
+  });
+
+  var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+  var paths=[];
+
+  DATA.forEach(function(d,r){
+    var y=TOP+r*ROW+ROW/2;
+    var g=el("g",{"class":"lrow"});
+    g.setAttribute("data-r",r);
+
+    // name
+    var nm=el("text",{x:0,y:y+4,"class":"nm"}); nm.textContent=d.name; g.appendChild(nm);
+    // annotation
+    var an=el("text",{x:W-MR+18,y:y+3,"class":"ann"}); an.textContent=d.ann; g.appendChild(an);
+    // rail
+    g.appendChild(el("line",{x1:ML,y1:y,x2:W-MR,y2:y,"class":"rail"}));
+
+    // build consecutive present spans -> path segments
+    var i=0;
+    while(i<d.p.length){
+      if(d.p[i]){
+        var s=i; while(i<d.p.length && d.p[i]) i++;
+        var e=i-1;
+        if(e>s){
+          var dd="M "+x(s)+" "+y+" L "+x(e)+" "+y;
+          var path=el("path",{d:dd,"class":"life"+(d.gold?" gold":"")});
+          g.appendChild(path); paths.push(path);
+        }
+      } else { i++; }
+    }
+    // dots
+    d.p.forEach(function(v,i){
+      if(v) g.appendChild(el("circle",{cx:x(i),cy:y,r:d.gold?4.6:4,"class":"dot"+(d.gold?" gold":"")}));
+    });
+
+    // hover hit area
+    var hit=el("rect",{x:0,y:y-ROW/2,width:W,height:ROW,"class":"row-hit"});
+    g.appendChild(hit);
+    g.addEventListener("mouseenter",function(){
+      document.getElementById("frame").classList.add("dim"); g.classList.add("on");
+    });
+    g.addEventListener("mouseleave",function(){
+      document.getElementById("frame").classList.remove("dim"); g.classList.remove("on");
+    });
+
+    svg.appendChild(g);
+  });
+
+  // draw-on animation
+  if(!reduce){
+    paths.forEach(function(p,idx){
+      var len=p.getTotalLength();
+      p.style.strokeDasharray=len; p.style.strokeDashoffset=len;
+      p.style.transition="stroke-dashoffset .9s cubic-bezier(.5,.1,.2,1)";
+      setTimeout(function(){p.style.strokeDashoffset=0;}, 260+idx*70);
+    });
+  }
+})();
+</script>
+</body>
+</html>
